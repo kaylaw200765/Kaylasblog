@@ -3,25 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kayla's Weight loss Journey</title>
+    <title>Fasting Lifestyle</title>
     <link href=
     "https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
               rel="stylesheet">
-              <!-- <link href=
-              "style.css"
-                        rel="stylesheet"> -->
-
-    <audio autoplay loop id="sampleaudio">
-        <source src="victoryx27s-anthem-war-212726.mp3">
-      </audio>
-      <script>
-        var audio = document.getElementById("sampleaudio");
-        audio.volume = 1;
-      </script>
-      <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="456732db-6864-487e-a01f-a7762964064b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+              <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="456732db-6864-487e-a01f-a7762964064b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+              
 </head>
-
-
 <body>
     <header class="text-black-600 body-font">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
@@ -79,10 +67,9 @@ fill="#ff69b4" stroke="none">
                 -104 94 -157 187 -106 185 -185 292 -349 476 -24 26 -44 53 -43 60 1 18 94 90
                 172 132 57 31 104 71 229 196 136 136 211 198 240 198 4 0 24 -33 44 -72z"/>
                 <path d="M3404 3338 l-19 -23 23 19 c21 18 27 26 19 26 -2 0 -12 -10 -23 -22z"/></g>
-            </svg>
-            
-            <span class="ml-3 text-xl font-bold">Kayla's Weight loss Blog</span>
-          </a>
+            </svg></a>
+            <a href="index.html"><button class="ml-3 text-xl font-bold">Kayla's Weight loss Blog</a></button>
+          
           <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
             <a href="Myblog.html"><button class="mr-5 hover:text-gray-900 font-bold">My Weekly Blog</a></button>
             <a href="Resources.html"><button class="mr-5 hover:text-gray-900 font-bold">Resources</a></button>
@@ -90,39 +77,109 @@ fill="#ff69b4" stroke="none">
             <a href="Contact.html"><button class="mr-5 hover:text-gray-900 font-bold">Contact</a></button>
             <a href="books/Mustreads.html" class="mr-5 hover:text-gray-900 font-bold">Must Reads</a>
           </nav>
-          <a href="https://www.youtube.com/@Kaylasweightloss" target="_blank"><button class="inline-flex font-bold items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">My YouTube
+          <a target="_blank" href="https://www.youtube.com/@Kaylasweightloss"><button class="inline-flex font-bold items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">My YouTube
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-              <path d="M5 12h14M12 5l7 7-7 7"></path>
+              <path d="M5 12h14M12 5l7 7-7 7"></path></svg>
             </svg>
+            <style>
+              /* Smooth transition effect for images */
+              .img-animate {
+                  transition: transform 0.3s ease-in-out;
+              }
+      
+              .img-animate:hover {
+                  transform: scale(1.05);
+              }
+      
+              /* Button hover effect */
+              .btn-animate {
+                  transition: background-color 0.3s ease, transform 0.2s ease;
+              }
+      
+              .btn-animate:hover {
+                  background-color: #38bdf8;
+                  transform: scale(1.05);
+              }
+      
+              /* Fade-in effect for content */
+              .fade-in {
+                  opacity: 0;
+                  animation: fadeIn 2s forwards;
+              }
+      
+              @keyframes fadeIn {
+                  to {
+                      opacity: 1;
+                  }
+              }
+      
+              /* Parallax background effect */
+              .parallax {
+                  background: url('your-image-url.jpg') no-repeat center center fixed;
+                  background-size: cover;
+                  height: 100vh;
+                  width: 100%;
+                  position: relative;
+                  animation: parallax-animation 30s linear infinite;
+              }
+      
+              @keyframes parallax-animation {
+                  0% {
+                      background-position: 0% 0%;
+                  }
+                  50% {
+                      background-position: 100% 100%;
+                  }
+                  100% {
+                      background-position: 0% 0%;
+                  }
+              }
+      
+              /* Image Hover Animation */
+              .image-hover-animate {
+                  position: relative;
+                  overflow: hidden;
+              }
+      
+              .image-hover-animate img {
+                  transition: transform 0.5s ease;
+              }
+      
+              .image-hover-animate:hover img {
+                  transform: scale(1.1);
+              }
+          </style>
           </button></a>
         </div>
       </header>
-      <section class="text-gray-600 body-font">
+
+    <section class="parallax">
         <div class="container px-5 py-24 mx-auto">
-          <div class="flex flex-wrap -mx-4 -mb-10 text-center">
-            <div class="sm:w-1/2 mb-10 px-4">
-              <div class="rounded-lg h-64 overflow-hidden">
-                <img alt="content" class="object-cover object-center h-full w-full" src="New food for home page.jpg">
-              </div>
-              <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">What Foods to Eat</h2>
-              <p class="leading-relaxed text-base">Learn about different types of eating. What is good for your body and what will work best with you lifestyle. Not everyone has access to the 
-                same things, and that's ok. Do what works for you. Find it here.
-              </p>
-            <a target="_blank" href="https://www.heart.org/en/healthy-living/healthy-eating/cooking-skills/shopping/5-easy-ways-to-find-healthier-options-at-the-grocery-store"><button class="flex mx-auto mt-6 text-white bg-green-500 border-0 py-2 px-5 focus:outline-none hover:bg-green-600 rounded">Find Healthy Foods 🍓</button></a>
+            <div class="flex flex-wrap -mx-4 -mb-10 text-center">
+                <div class="sm:w-1/2 mb-10 px-4 image-hover-animate">
+                    <div class="rounded-lg h-64 overflow-hidden">
+                        <img alt="content" class="object-cover object-center h-full w-full img-animate" src="New food for home page.jpg">
+                    </div>
+                    <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">What Foods to Eat</h2>
+                    <p class="leading-relaxed text-base">Learn about different types of eating. What is good for your body and what will work best with your lifestyle...</p>
+                    <a target="_blank" href="https://www.heart.org/en/healthy-living/healthy-eating/cooking-skills/shopping/5-easy-ways-to-find-healthier-options-at-the-grocery-store">
+                        <button class="flex mx-auto mt-6 text-white bg-green-500 border-0 py-2 px-5 focus:outline-none hover:bg-green-600 rounded btn-animate">Find Healthy Foods 🍓</button>
+                    </a>
+                </div>
+
+                <div class="sm:w-1/2 mb-10 px-4 image-hover-animate">
+                    <div class="rounded-lg h-64 overflow-hidden">
+                        <img alt="content" class="object-cover object-center h-full w-full img-animate" src="New image of weight for home page.jpg">
+                    </div>
+                    <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Weight Lifting</h2>
+                    <p class="leading-relaxed text-base">Do you struggle with working out? Don't worry I did too. Follow this link to see the different things I tried...</p>
+                    <a target="_blank" href="https://www.healthline.com/health/how-to-start-lifting-weights">
+                        <button class="flex mx-auto mt-6 text-white bg-green-500 border-0 py-2 px-5 focus:outline-none hover:bg-green-600 rounded btn-animate">I work out 😤</button>
+                    </a>
+                </div>
             </div>
-            <div class="sm:w-1/2 mb-10 px-4">
-              <div class="rounded-lg h-64 overflow-hidden">
-                <img alt="content" class="object-cover object-center h-full w-full" src="New image of weight for home page.jpg">
-              </div>
-              <h2 class="title-font text-2xl font-medium text-gray-900 mt-6 mb-3">Weight Lifting</h2>
-              <p class="leading-relaxed text-base">Do you struggle with working out? Don't worry I did to. Follow this link to see the different things I tried and maybe it could help you too.Let's find what motivates you. Let's 
-                get you in the gym.
-              </p>
-              <a target="_blank" href="https://www.healthline.com/health/how-to-start-lifting-weights"><button class="flex mx-auto mt-6 text-white bg-green-500 border-0 py-2 px-5 focus:outline-none hover:bg-green-600 rounded">I work out 😤 </button></a>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
       <footer class="text-gray-600 body-font">
         <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
           <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">

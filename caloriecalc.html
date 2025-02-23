@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vegetarian Lifestyle</title>
+    <title>Fasting Lifestyle</title>
     <link href=
     "https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
               rel="stylesheet">
@@ -84,123 +84,153 @@ fill="#ff69b4" stroke="none">
           </button></a>
         </div>
       </header>
-      <section class="text-gray-600 body-font bg-gradient-to-br from-indigo-50 to-pink-50">
-        <div class="container px-5 py-24 mx-auto">
-            <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
-                <!-- Title with Fade-In Animation -->
-                <p class="leading-relaxed text-lg font-semibold text-indigo-500 mb-4 animate-fade-in">
-                    Vegetarian Meal Plan Options
-                </p>
+      
+      
+          
+          <style>
+              
+              .calculator {
+                  background-color: white;
+                  padding: 30px;
+                  border-radius: 10px;
+                  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                  width: 300px;
+                  font-family: Arial, sans-serif;
+              }
+              #body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+
+              }
+              h1 {
+                  text-align: center;
+              }
+              label {
+                  display: block;
+                  margin: 10px 0 5px;
+              }
+              input, select {
+                  width: 100%;
+                  padding: 8px;
+                  margin: 5px 0;
+                  border-radius: 5px;
+                  border: 1px solid #ccc;
+              }
+              #button1 {
+                  width: 100%;
+                  padding: 10px;
+                  background-color: #4CAF50;
+                  color: white;
+                  border: none;
+                  border-radius: 5px;
+                  cursor: pointer;
+              }
+              #button1:hover {
+                  background-color: #45a049;
+              }
+              .result {
+                  margin-top: 20px;
+                  padding: 15px;
+                  background-color: #f1f1f1;
+                  border-radius: 5px;
+              }
+              .result p {
+                  margin: 10px 0;
+              }
+          </style>
+      
+      <div id="body">
+      <div class="calculator">
+          <h1>Calorie & BMI Calculator</h1>
+          <label for="age">Age (years):</label>
+          <input type="number" id="age" placeholder="Enter your age" required>
+      
+          <label for="gender">Gender:</label>
+          <select id="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+          </select>
+      
+          <label for="weight">Weight (kg):</label>
+          <input type="number" id="weight" placeholder="Enter your weight in kg" required>
+      
+          <label for="height">Height (cm):</label>
+          <input type="number" id="height" placeholder="Enter your height in cm" required>
+      
+          <label for="activity">Activity Level:</label>
+          <select id="activity">
+              <option value="1.2">Sedentary (little or no exercise)</option>
+              <option value="1.375">Lightly active (light exercise/sports 1-3 days/week)</option>
+              <option value="1.55">Moderately active (moderate exercise/sports 3-5 days/week)</option>
+              <option value="1.725">Very active (hard exercise/sports 6-7 days/week)</option>
+              <option value="1.9">Super active (very hard exercise/sports & physical job)</option>
+          </select>
+      
+          <button id="button1S" onclick="calculateCalories()">Calculate</button>
+      
+          <div class="result" id="result" style="display: none;">
+              <p id="bmr-result"></p>
+              <p id="tdee-result"></p>
+              <p id="maintain-result"></p>
+              <p id="lose-result"></p>
+              <p id="gain-result"></p>
+              <p id="bmi-result"></p>
+          </div>
+      </div>
+      
+      <script>
+          function calculateCalories() {
+              const age = parseInt(document.getElementById('age').value);
+              const weight = parseFloat(document.getElementById('weight').value);
+              const height = parseFloat(document.getElementById('height').value);
+              const gender = document.getElementById('gender').value;
+              const activityLevel = parseFloat(document.getElementById('activity').value);
+      
+              if (isNaN(age) || isNaN(weight) || isNaN(height)) {
+                  alert('Please enter valid information.');
+                  return;
+              }
+      
+              // Calculate BMR using the Mifflin-St Jeor Equation
+              let bmr;
+              if (gender === 'male') {
+                  bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+              } else {
+                  bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+              }
+      
+              // Calculate TDEE
+              const tdee = bmr * activityLevel;
+      
+              // Calculate BMI
+              const heightInMeters = height / 100;
+              const bmi = weight / (heightInMeters * heightInMeters);
+      
+              // Calculate recommended calorie intake
+              const maintainCalories = tdee;
+              const loseCalories = tdee - 500; // 500 calorie deficit for weight loss
+              const gainCalories = tdee + 500; // 500 calorie surplus for weight gain
+      
+              // Show results
+              document.getElementById('result').style.display = 'block';
+              document.getElementById('bmr-result').textContent = `BMR: ${bmr.toFixed(2)} kcal/day`;
+              document.getElementById('tdee-result').textContent = `TDEE: ${tdee.toFixed(2)} kcal/day`;
+              document.getElementById('maintain-result').textContent = `Maintain weight: ${maintainCalories.toFixed(2)} kcal/day`;
+              document.getElementById('lose-result').textContent = `Lose weight: ${loseCalories.toFixed(2)} kcal/day`;
+              document.getElementById('gain-result').textContent = `Gain weight: ${gainCalories.toFixed(2)} kcal/day`;
+              document.getElementById('bmi-result').textContent = `BMI: ${bmi.toFixed(2)}`;
+          }
+      </script>
+      </div>
     
-                <!-- Breakfast Section -->
-                <div class="mb-12 animate-fade-in-up delay-100">
-                    <p class="leading-relaxed text-lg font-medium text-gray-900 mb-4">Breakfast Options</p>
-                    <ul class="list-disc list-inside text-left space-y-2">
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Greek yogurt (such as Ratio yogurt) with chia seeds and fresh berries</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Oatmeal made with almond milk, topped with walnuts, banana slices, drizzle of honey</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Whole grain toast with almond butter or avocado and a sprinkle of chia seeds</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Smoothie with spinach, almond milk, banana, flaxseeds, a scoop of protein powder</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Chia pudding made with almond milk, topped with strawberries and shredded coconut</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Overnight oats with almond butter, cinnamon, and apple slices</li>
-                    </ul>
-                </div>
+      
     
-                <!-- Lunch Section -->
-                <div class="mb-12 animate-fade-in-up delay-200">
-                    <p class="leading-relaxed text-lg font-medium text-gray-900 mb-4">Lunch Options</p>
-                    <ul class="list-disc list-inside text-left space-y-2">
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Quinoa bowl with chickpeas, avocado, mixed greens, and a lemon-tahini dressing</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Hummus and veggie wrap with spinach, cucumber, and bell peppers</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Lentil salad with arugula, cherry tomatoes, cucumber, and a light vinaigrette</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Bean salad with black beans, corn, red onion, cilantro, and lime</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Sweet potato and black bean tacos with avocado, salsa, and lettuce</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Tofu and vegetable stir-fry with soy sauce, served with brown rice</li>
-                    </ul>
-                </div>
-    
-                <!-- Dinner Section -->
-                <div class="mb-12 animate-fade-in-up delay-300">
-                    <p class="leading-relaxed text-lg font-medium text-gray-900 mb-4">Dinner Options</p>
-                    <ul class="list-disc list-inside text-left space-y-2">
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Grilled tofu with roasted vegetables (sweet potatoes, carrots, broccoli)</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Vegetable curry with coconut milk, served over quinoa or brown rice</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Zucchini noodles with marinara sauce and nutritional yeast</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Veggie burger with lettuce, tomato, and a side of roasted sweet potato fries</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Grilled vegetable skewers (bell peppers, mushrooms, onions) served with a quinoa salad</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Tofu and vegetable stir-fry with edamame, broccoli, bell peppers, and soy sauce</li>
-                    </ul>
-                </div>
-    
-                <!-- Snack Section -->
-                <div class="mb-12 animate-fade-in-up delay-400">
-                    <p class="leading-relaxed text-lg font-medium text-gray-900 mb-4">Snack Options</p>
-                    <ul class="list-disc list-inside text-left space-y-2">
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Protein shake (Elite Core protein drink)</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">A handful of almonds or mixed nuts</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Carrot sticks with guacamole or hummus</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Rice cakes with almond butter</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Sliced cucumber with hummus</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">A small handful of sunflower seeds or pumpkin seeds</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Mixed fruit (apple slices, berries, grapes)</li>
-                        <li class="text-gray-700 hover:text-indigo-500 transition-all duration-300 transform hover:translate-x-2">Trail mix with nuts and dried fruit</li>
-                    </ul>
-                </div>
-    
-                <!-- Divider with Pulse Animation -->
-                <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-8 mb-6 animate-pulse"></span>
-    
-                <!-- Author Section -->
-                <div class="animate-fade-in-up delay-500">
-                    <h2 class="text-gray-900 font-medium title-font tracking-wider text-sm">Kayla V</h2>
-                    <p class="text-gray-500">The Creator</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Custom Animations -->
-    <style>
-        @keyframes fade-in {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    
-        @keyframes fade-in-up {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    
-        .animate-fade-in {
-            animation: fade-in 1s ease-in-out;
-        }
-    
-        .animate-fade-in-up {
-            animation: fade-in-up 1s ease-in-out;
-        }
-    
-        .delay-100 {
-            animation-delay: 0.1s;
-        }
-    
-        .delay-200 {
-            animation-delay: 0.2s;
-        }
-    
-        .delay-300 {
-            animation-delay: 0.3s;
-        }
-    
-        .delay-400 {
-            animation-delay: 0.4s;
-        }
-    
-        .delay-500 {
-            animation-delay: 0.5s;
-        }
-    </style>
-    
-    
-      <footer class="text-gray-600 body-font">
+    <footer class="text-gray-600 body-font">
         <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
           <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
             <?xml version="1.0" standalone="no"?>
@@ -288,7 +318,5 @@ fill="#ff69b4" stroke="none">
           </span>
         </div>
       </footer>
-   
-    
 </body>
 </html>
